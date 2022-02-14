@@ -22,10 +22,13 @@ bool isLetter(const char a) {
     return a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z';
 }
 
-int *getPtrSymbolByCondition(const char *a, const size_t n, bool (*condition)(char)) {
-    for (register size_t i = 0; i < n; ++i)
-        if (condition(*(a + i)))
-            return a + i;
+char *getPtrSymbolByCondition(char *a, bool (*condition)(char)) {
+    while (*a != '\0')
+        if (condition(*a))
+            return a;
+        else
+            a++;
+    return a;
 }
 
 #endif //UNTITLED3_STRINGS_H
