@@ -14,6 +14,14 @@ void swapC(char *a, char *b) {
     *b = t;
 }
 
+bool isDigit(const char a) {
+    return a >= '0' && a <= '9';
+}
+
+bool isLetter(const char a) {
+    return a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z';
+}
+
 int *getPtrSymbolByCondition(const char *a, const size_t n, bool (*condition)(char)) {
     for (register size_t i = 0; i < n; ++i)
         if (condition(*(a + i)))
